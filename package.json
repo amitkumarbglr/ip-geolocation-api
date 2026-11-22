@@ -1,0 +1,18 @@
+{
+  "name": "ip-geolocation-api",
+  "version": "1.0.0",
+  "description": "IP geolocation API showcase: city, region, country, lat/long, timezone, currency, connection flags, a confidence score and an AI-written explanation.",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test test/*.test.js",
+    "verify": "npm test && node --check src/server.js",
+    "lint": "node --check src/server.js && node --check src/app.js"
+  },
+  "license": "MIT"
+}

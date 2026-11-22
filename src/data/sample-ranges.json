@@ -1,0 +1,62 @@
+[
+  {
+    "cidr": "8.8.8.0/24",
+    "city": "Mountain View",
+    "region": "California",
+    "country": "United States",
+    "countryCode": "US",
+    "continent": "NA",
+    "latitude": 37.386,
+    "longitude": -122.0838,
+    "timezone": "America/Los_Angeles",
+    "currency": "USD",
+    "postal": "94043",
+    "org": "Google LLC",
+    "asn": "AS15169"
+  },
+  {
+    "cidr": "2001:4860:4860::/48",
+    "city": "Mountain View",
+    "region": "California",
+    "country": "United States",
+    "countryCode": "US",
+    "continent": "NA",
+    "latitude": 37.386,
+    "longitude": -122.0838,
+    "timezone": "America/Los_Angeles",
+    "currency": "USD",
+    "postal": "94043",
+    "org": "Google LLC",
+    "asn": "AS15169"
+  },
+  {
+    "cidr": "81.2.69.0/24",
+    "city": "London",
+    "region": "England",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "continent": "EU",
+    "latitude": 51.5142,
+    "longitude": -0.0931,
+    "timezone": "Europe/London",
+    "currency": "GBP",
+    "postal": "EC1Y",
+    "org": "Example Broadband Ltd",
+    "asn": null
+  },
+  {
+    "cidr": "203.0.114.0/24",
+    "city": null,
+    "region": null,
+    "country": "Japan",
+    "countryCode": "JP",
+    "continent": "AS",
+    "latitude": 35.6895,
+    "longitude": 139.6917,
+    "timezone": "Asia/Tokyo",
+    "currency": "JPY",
+    "postal": null,
+    "org": "Example Mobile Carrier",
+    "asn": null
+  }
+]

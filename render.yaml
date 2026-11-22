@@ -1,0 +1,21 @@
+# One-click deploy blueprint for Render (https://render.com/docs/blueprint-spec).
+services:
+  - type: web
+    name: ip-geolocation-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: GEO_PROVIDER
+        value: ipapi
+      - key: CACHE_TTL_SECONDS
+        value: "3600"
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "60"
+      - key: TRUST_PROXY
+        value: "true"
+      - key: ANTHROPIC_MODEL
+        value: claude-haiku-5-5
+      - key: ANTHROPIC_API_KEY
+        sync: false # set in the Render dashboard, never committed

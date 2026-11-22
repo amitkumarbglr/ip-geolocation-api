@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="IP geolocation API demo: city, region, country, coordinates, timezone, currency, connection flags and an AI explanation." />
+  <title>IP Geolocation API</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E%F0%9F%8C%90%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>IP Geolocation API</h1>
+      <p class="lede">Look up city, region, country and coordinates for any IP address, plus a confidence score and an AI-written explanation.</p>
+    </header>
+
+    <form id="lookup-form" class="card" autocomplete="off">
+      <label for="ip-input">IP address</label>
+      <div class="row">
+        <input id="ip-input" name="ip" type="text" placeholder="e.g. 8.8.8.8 or 2001:4860:4860::8888" spellcheck="false" inputmode="text" required />
+        <button type="submit" id="lookup-btn">Look up</button>
+        <button type="button" id="me-btn" class="ghost">My IP</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </form>
+
+    <section id="result" class="card" hidden aria-live="polite">
+      <div class="result-head">
+        <div>
+          <p class="eyebrow">Result for</p>
+          <h2 id="r-ip" class="mono"></h2>
+        </div>
+        <span id="r-flag" class="flag" aria-hidden="true"></span>
+      </div>
+
+      <dl class="grid">
+        <div><dt>City</dt><dd id="r-city">—</dd></div>
+        <div><dt>Region</dt><dd id="r-region">—</dd></div>
+        <div><dt>Country</dt><dd id="r-country">—</dd></div>
+        <div><dt>Coordinates</dt><dd id="r-coords">—</dd></div>
+        <div><dt>Timezone</dt><dd id="r-tz">—</dd></div>
+        <div><dt>Currency</dt><dd id="r-currency">—</dd></div>
+        <div><dt>Network</dt><dd id="r-org">—</dd></div>
+        <div><dt>ASN</dt><dd id="r-asn">—</dd></div>
+      </dl>
+
+      <div class="accuracy">
+        <div class="accuracy-top">
+          <span>Accuracy</span>
+          <span id="r-accuracy-label" class="pill">—</span>
+        </div>
+        <div class="bar" aria-hidden="true"><span id="r-accuracy-bar"></span></div>
+        <ul id="r-notes" class="notes"></ul>
+      </div>
+
+      <div class="flags" id="r-flags"></div>
+
+      <div class="actions">
+        <a id="r-map" class="link" target="_blank" rel="noopener noreferrer" hidden>Open in map</a>
+        <button type="button" id="explain-btn" class="ghost">Explain with AI</button>
+      </div>
+      <blockquote id="r-explain" class="explain" hidden></blockquote>
+    </section>
+
+    <section class="card docs">
+      <h2>Try it from the terminal</h2>
+<pre><code># Single lookup
+curl https://YOUR-APP.example.com/api/v1/ip/8.8.8.8
+
+# Lookup of the caller's own address
+curl https://YOUR-APP.example.com/api/v1/ip/me
+
+# Batch (up to 50)
+curl -X POST https://YOUR-APP.example.com/api/v1/ip/batch \
+  -H 'content-type: application/json' \
+  -d '{"ips":["8.8.8.8","2001:4860:4860::8888"]}'
+
+# AI explanation
+curl -X POST https://YOUR-APP.example.com/api/v1/ip/8.8.8.8/explain</code></pre>
+      <p class="muted">Accuracy is highest at country level and lower for city, mobile, VPN and proxy traffic. Results are not a substitute for a licensed production database.</p>
+    </section>
+
+    <footer class="muted">Open-source showcase · <a href="/health">health</a></footer>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
